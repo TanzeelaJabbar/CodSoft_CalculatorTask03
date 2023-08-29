@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&family=Roboto&family=Tinos&family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="toggle">
+                <div class="toggle-btn" onclick="AnimatedToggle()"></div>
+            </div>
+            <input type="text" id="input-box" placeholder="0">
+            <button class="button" value="AC" onclick="Clear()">AC</button>
+            <button class="button" value="DE" onclick="del()">DE</button>
+            <button class="button operator" onclick="display('/')">/</button>
+            <button class="button operator" onclick="display('.')">.</button>
+            <button class="button" onclick="display('7')">7</button>
+            <button class="button" onclick="display('8')">8</button>
+            <button class="button" onclick="display('9')">9</button>
+            <button class="button operator" onclick="display('*')">*</button>
+            <button class="button" onclick="display('4')">4</button>
+            <button class="button" onclick="display('5')">5</button>
+            <button class="button" onclick="display('6')">6</button>
+            <button class="button operator" onclick="display('-')">-</button>
+            <button class="button" onclick="display('1')">1</button>
+            <button class="button" onclick="display('2')">2</button>
+            <button class="button" onclick="display('3')">3</button>
+            <button class="button operator" onclick="display('+')">+</button>
+            <button class="button" onclick="display('00')">00</button>
+            <button class="button" onclick="display('0')">0</button>
+            <button class="button operator" id="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        // Fuctions For calculator
+        // display user input on screen
+        let output_sc =  document.getElementById('input-box')
+        function display(num){
+            output_sc.value += num
+        }
+        // for calculation
+        function calculate() {
+            try {
+                output_sc.value = eval(output_sc.value)
+            } catch (error) {
+                alert("Invalid Input")
+            }
+        }
+
+        // function to clear screen
+        function Clear(){
+            output_sc.value = ' '
+        }
+
+        // function to delete a one by one on a screen
+        function del() {
+            output_sc.value= output_sc.value.slice(0,-1)
+            
+        }
+
+        // End here
+
+
+        // Disable input for all input elements on the page
+
+       var inputElements = document.getElementsByTagName('input');
+         for (var i = 0; i < inputElements.length; i++) {
+         inputElements[i].disabled = true;
+         }
+
+    
+        // End here
+
+        // Functions for Toggle button
+        let toggle = document.querySelector(".toggle");
+        let Calculator =document.querySelector(".calculator");
+        let Container =document.querySelector(".container")
+
+        function AnimatedToggle(){
+            toggle.classList.toggle("active")
+            Calculator.classList.toggle("active")
+            Container.classList.toggle("active")
+        }
+    </script>
+</body>
+</html>
