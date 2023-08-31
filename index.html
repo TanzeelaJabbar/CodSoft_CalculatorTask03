@@ -47,7 +47,6 @@
         // Fuctions For calculator
         let output_sc = document.getElementById('input-box');
         let Equal = document.getElementById('equal');
-        var inputExpression = output_sc.value.trim();
          // display user input on screen
         function display(num) {
             output_sc.value += num
@@ -74,8 +73,11 @@
 
 
         // function to clear screen
+
         function Clear() {
-            output_sc.value = '0'
+            var Placeholder = document.getElementById('input-box').placeholder;
+            output_sc.value = '';
+            output_sc.placeholder=Placeholder;
         }
 
         // function to delete a one by one on a screen
