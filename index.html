@@ -47,27 +47,31 @@
         // Fuctions For calculator
         let output_sc = document.getElementById('input-box');
         let Equal = document.getElementById('equal');
-         // display user input on screen
+        // display user input on screen
         function display(num) {
             output_sc.value += num
         }
 
         // for calculation
         function calculate() {
-            try 
-            {
+            try {
                 var input = output_sc.value.trim();
 
                 // Check if the input is not empty
                 if (input !== '') {
                     output_sc.value = eval(input);
-                } else {
+                    if (output_sc.value == "Infinity") {
+                        output_sc.value = "\u221E"
+                    }
+                }
+
+                else {
                     output_sc.value = '';
                 }
-            } 
-            catch (error) 
-            {
+            }
+            catch (error) {
                 alert("Invalid Input");
+                Clear();
             }
         }
 
@@ -77,7 +81,7 @@
         function Clear() {
             var Placeholder = document.getElementById('input-box').placeholder;
             output_sc.value = '';
-            output_sc.placeholder=Placeholder;
+            output_sc.placeholder = Placeholder;
         }
 
         // function to delete a one by one on a screen
