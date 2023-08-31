@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&family=Roboto&family=Tinos&family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
-    
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&family=Roboto&family=Tinos&family=Ubuntu:ital,wght@1,300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <div class="container">
         <div class="calculator">
@@ -42,29 +45,43 @@
     </div>
     <script>
         // Fuctions For calculator
-        // display user input on screen
-        let output_sc =  document.getElementById('input-box')
-        function display(num){
+        let output_sc = document.getElementById('input-box');
+        let Equal = document.getElementById('equal');
+        var inputExpression = output_sc.value.trim();
+         // display user input on screen
+        function display(num) {
             output_sc.value += num
         }
+
         // for calculation
         function calculate() {
-            try {
-                output_sc.value = eval(output_sc.value)
-            } catch (error) {
-                alert("Invalid Input")
+            try 
+            {
+                var input = output_sc.value.trim();
+
+                // Check if the input is not empty
+                if (input !== '') {
+                    output_sc.value = eval(input);
+                } else {
+                    output_sc.value = '';
+                }
+            } 
+            catch (error) 
+            {
+                alert("Invalid Input");
             }
         }
 
+
         // function to clear screen
-        function Clear(){
-            output_sc.value = ' '
+        function Clear() {
+            output_sc.value = '0'
         }
 
         // function to delete a one by one on a screen
         function del() {
-            output_sc.value= output_sc.value.slice(0,-1)
-            
+            output_sc.value = output_sc.value.slice(0, -1)
+
         }
 
         // End here
@@ -72,24 +89,25 @@
 
         // Disable input for all input elements on the page
 
-       var inputElements = document.getElementsByTagName('input');
-         for (var i = 0; i < inputElements.length; i++) {
-         inputElements[i].disabled = true;
-         }
+        var inputElements = document.getElementsByTagName('input');
+        for (var i = 0; i < inputElements.length; i++) {
+            inputElements[i].disabled = true;
+        }
 
-    
+
         // End here
 
         // Functions for Toggle button
         let toggle = document.querySelector(".toggle");
-        let Calculator =document.querySelector(".calculator");
-        let Container =document.querySelector(".container")
+        let Calculator = document.querySelector(".calculator");
+        let Container = document.querySelector(".container")
 
-        function AnimatedToggle(){
+        function AnimatedToggle() {
             toggle.classList.toggle("active")
             Calculator.classList.toggle("active")
             Container.classList.toggle("active")
         }
     </script>
 </body>
+
 </html>
