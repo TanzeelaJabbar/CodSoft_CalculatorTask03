@@ -49,7 +49,12 @@
         let Equal = document.getElementById('equal');
         // display user input on screen
         function display(num) {
-            output_sc.value += num
+            if (output_sc.value == "\u221E") {
+                         output_sc.value = num
+            }
+            else{
+                output_sc.value += num
+            }
         }
 
         // for calculation
@@ -62,6 +67,7 @@
                     output_sc.value = eval(input);
                     if (output_sc.value == "Infinity") {
                         output_sc.value = "\u221E"
+
                     }
                 }
 
